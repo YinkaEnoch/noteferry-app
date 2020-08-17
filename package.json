@@ -1,0 +1,43 @@
+{
+  "name": "copypaste", 
+  "license": "MIT", 
+  "author": "Yinka Enoch Adedokun <adedokunyinkaenoch@gmail.com> (https://yinkaenoch.github.io/)", 
+  "version": "0.0.0", 
+  "dependencies": {
+    "create_new_element": "^1.0.1"
+  }, 
+  "scripts": {
+    "live-server": "npx live-server --port=3000 --open=build/", 
+    "deploy": "npm run lint && npm run build && netlify deploy --prod", 
+    "lint": "npx eslint src", 
+    "serve": "npm run build && npm run live-server", 
+    "start": "npx webpack-dev-server --config=./config/webpack.dev.config.js", 
+    "build": "npx webpack --config=./config/webpack.prod.config.js", 
+    "test": "jest"
+  }, 
+  "keywords": [], 
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.1.4", 
+    "mini-css-extract-plugin": "^0.10.0", 
+    "clean-webpack-plugin": "^3.0.0", 
+    "sass-loader": "^9.0.3", 
+    "prettier": "2.0.5", 
+    "copy-webpack-plugin": "^6.0.3", 
+    "css-loader": "^4.2.1", 
+    "eslint": "^7.7.0", 
+    "eslint-config-prettier": "^6.11.0", 
+    "style-loader": "^1.2.1", 
+    "webpack-merge": "^5.1.1", 
+    "html-webpack-plugin": "^4.3.0", 
+    "file-loader": "^6.0.0", 
+    "webpack": "^4.44.1", 
+    "babel-loader": "^8.1.0", 
+    "@babel/core": "^7.11.1", 
+    "node-sass": "^4.14.1", 
+    "webpack-cli": "^3.3.12", 
+    "webpack-dev-server": "^3.11.0", 
+    "@babel/preset-env": "^7.11.0"
+  }, 
+  "main": "index.js", 
+  "description": ""
+}

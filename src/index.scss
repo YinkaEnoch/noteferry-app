@@ -1,0 +1,38 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+/* Default styling for anchor element */
+a {
+  text-decoration: none;
+  transition: all 0.2s linear;
+  color: inherit;
+}
+
+/*All buttons should have cursor set to pointer*/
+button {
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
