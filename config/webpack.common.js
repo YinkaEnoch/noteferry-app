@@ -1,4 +1,3 @@
-
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -23,16 +22,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
-            plugins: [
-              [
-                "@babel/plugin-transform-react-jsx",
-                {
-                  pragma: "h",
-                  pragmaFrag: "Fragment"
-                }
-              ]
-            ]
+            presets: ["@babel/preset-env"]
           }
         }
       },
@@ -71,4 +61,3 @@ module.exports = {
     })
   ]
 };
-

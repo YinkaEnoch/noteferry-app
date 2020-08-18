@@ -1,5 +1,4 @@
-
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.common");
 
 // CSSModuleLoader
@@ -17,10 +16,9 @@ module.exports = merge(commonConfig, {
   devServer: {
     contentBase: "../build",
     open: true,
-    port: 4217,
+    port: 4907,
     hot: true,
     historyApiFallback: true
-    //historyApiFallback: {disableDotRule: true}
   },
   module: {
     rules: [
@@ -39,4 +37,3 @@ module.exports = merge(commonConfig, {
     ]
   }
 });
-
