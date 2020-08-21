@@ -1,3 +1,5 @@
+@import "_var";
+@import "styles/_btn";
 
 * {
   margin: 0;
@@ -5,7 +7,9 @@
   box-sizing: border-box;
   font-size: 100%;
   line-height: 1.5;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,7 +24,14 @@ body,
 #root {
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
   position: relative;
+}
+
+#root {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 /* Default styling for anchor element */
@@ -36,3 +47,33 @@ button {
   transition: opacity 0.2s linear;
 }
 
+.app-title {
+  color: $primaryColor;
+  font-size: 2rem;
+  margin: 1rem auto 0;
+}
+
+.app-subtitle {
+  color: $primaryColor;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.form-body {
+  text-align: left;
+  padding: 1rem;
+}
+
+.action-body {
+  text-align: center;
+}
+
+.btn {
+  margin: 0.5rem;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 0.5rem;
+}

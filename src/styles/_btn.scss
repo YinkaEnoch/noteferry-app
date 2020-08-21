@@ -1,0 +1,14 @@
+.btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 2px solid $primaryColor;
+  border-radius: 5px;
+  color: $primaryColor;
+}
+.btn-primary {
+  background: $primaryColor;
+  color: white;
+}
+.btn-default {
+  border: 2px solid $primaryColor;
+}

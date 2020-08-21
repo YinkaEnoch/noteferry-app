@@ -1,0 +1,30 @@
+@import "_var";
+@import "styles/btn";
+
+.createNoteBody {
+  display: block;
+  margin-top: 0.5rem;
+}
+.label {
+  display: block;
+}
+
+.formEntry {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 0.5rem;
+}
+
+.textarea {
+  height: 7rem;
+  resize: none;
+}
+
+.btn {
+  @extend .btn-primary;
+  display: block;
+  margin: 2rem auto;
+}

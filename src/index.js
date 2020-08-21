@@ -1,5 +1,6 @@
 import c from "create_new_element";
 import createNote from "./create-note";
+import styles from "./index.scss";
 
 const root = document.querySelector("#root");
 
@@ -7,7 +8,8 @@ const root = document.querySelector("#root");
 root.appendChild(
   c({
     elementType: "h1",
-    elementText: "Note Ferry"
+    elementText: "Note Ferry",
+    elementClass: "app-title"
   })
 );
 
@@ -15,24 +17,21 @@ root.appendChild(
 root.appendChild(
   c({
     elementType: "p",
-    elementText: "text transfer made easier"
+    elementText: "text transfer made easier",
+    elementClass: "app-subtitle"
   })
 );
 
 // Action Container
-const actionBody = c({ elementType: "div" });
+const actionBody = c({ elementType: "div", elementClass: "action-body" });
 root.appendChild(actionBody);
-
-// Form Container
-const formBody = c({
-  elementType: "section"
-});
 
 // Create Note Button
 actionBody.appendChild(
   c({
     elementType: "button",
-    elementText: "Create New Note",
+    elementText: "Create Note",
+    elementClass: ["btn", "btn-primary"],
     listener: [
       {
         on: "click",
@@ -50,6 +49,7 @@ actionBody.appendChild(
   c({
     elementType: "button",
     elementText: "Fetch Note",
+    elementClass: ["btn", "btn-default"],
     listener: [
       {
         on: "click",
@@ -60,6 +60,11 @@ actionBody.appendChild(
     ]
   })
 );
+// Form Container
+const formBody = c({
+  elementType: "section",
+  elementClass: "form-body"
+});
 
 // Append FormBody to root
 formBody.appendChild(createNote);
@@ -70,6 +75,7 @@ root.appendChild(
   c({
     elementType: "footer",
     innerHTML:
-      "this app is crafted by <a href='https://bit.ly/yinkaenoch' target='_blank' rel='noreferrer noopener'>@yinkaenoch</a>"
+      "this app is crafted by <a href='https://bit.ly/yinkaenoch' target='_blank' rel='noreferrer noopener'>@yinkaenoch</a>",
+    elementClass: "footer"
   })
 );

@@ -1,8 +1,9 @@
 import c from "create_new_element";
+import styles from "./create-note.module.scss";
 
 const createNote = c({
   elementType: "form",
-  elementClass: "create-note-body",
+  elementClass: styles.createNoteBody,
   otherAttr: {
     method: "POST"
   }
@@ -13,6 +14,7 @@ createNote.appendChild(
   c({
     elementType: "label",
     elementText: "Note Title",
+    elementClass: styles.label,
     otherAttr: {
       for: "note-title"
     }
@@ -24,6 +26,7 @@ createNote.appendChild(
   c({
     elementType: "input",
     elementId: "note-title",
+    elementClass: styles.formEntry,
     otherAttr: {
       type: "text",
       placeholder: "Netlify API key"
@@ -35,6 +38,7 @@ createNote.appendChild(
 createNote.appendChild(
   c({
     elementType: "label",
+    elementClass: styles.label,
     elementText: "Note Body",
     otherAttr: {
       for: "note-body"
@@ -47,6 +51,7 @@ createNote.appendChild(
   c({
     elementType: "textarea",
     elementId: "note-body",
+    elementClass: [styles.formEntry, styles.textarea],
     otherAttr: {
       type: "text",
       placeholder: "a23gvW344QA4ei90lkwe233i"
@@ -59,6 +64,7 @@ createNote.appendChild(
   c({
     elementType: "button",
     elementText: "Save Note",
+    elementClass: styles.btn,
     otherAttr: {
       type: "submit"
     }
