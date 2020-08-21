@@ -1,5 +1,6 @@
 import c from "create_new_element";
 import createNote from "./create-note";
+import fetchNote from "./fetch-note";
 import styles from "./index.scss";
 
 const root = document.querySelector("#root");
@@ -31,13 +32,16 @@ actionBody.appendChild(
   c({
     elementType: "button",
     elementText: "Create Note",
-    elementClass: ["btn", "btn-primary"],
+    elementClass: ["action-btn", "active-btn"],
     listener: [
       {
         on: "click",
-        callback: () => {
+        callback: (e) => {
           formBody.removeChild(formBody.firstElementChild);
           formBody.appendChild(createNote);
+          // Add active-btn class
+          document.querySelector(".active-btn").classList.remove("active-btn");
+          e.target.classList.add("active-btn");
         }
       }
     ]
@@ -49,12 +53,16 @@ actionBody.appendChild(
   c({
     elementType: "button",
     elementText: "Fetch Note",
-    elementClass: ["btn", "btn-default"],
+    elementClass: ["action-btn"],
     listener: [
       {
         on: "click",
-        callback: () => {
-          console.log("fetch note");
+        callback: (e) => {
+          formBody.removeChild(formBody.firstElementChild);
+          formBody.appendChild(fetchNote);
+          // Add active-btn class
+          document.querySelector(".active-btn").classList.remove("active-btn");
+          e.target.classList.add("active-btn");
         }
       }
     ]
