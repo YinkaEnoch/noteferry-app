@@ -86,4 +86,4 @@ root.appendChild(
       "this app is crafted by <a href='https://bit.ly/yinkaenoch' target='_blank' rel='noreferrer noopener'>@yinkaenoch</a>",
     elementClass: "footer"
   })
-);
+); 

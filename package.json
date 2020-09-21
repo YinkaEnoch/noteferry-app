@@ -1,5 +1,5 @@
 {
-  "name": "copypaste", 
+  "name": "noteferry", 
   "license": "MIT", 
   "author": "Yinka Enoch Adedokun <adedokunyinkaenoch@gmail.com> (https://yinkaenoch.github.io/)", 
   "version": "0.0.0", 
@@ -39,5 +39,5 @@
     "@babel/preset-env": "^7.11.0"
   }, 
   "main": "index.js", 
-  "description": ""
+  "description": "A simple application to copy notes between devices. It simplifies the task of copying texts around multiple devices"
 }

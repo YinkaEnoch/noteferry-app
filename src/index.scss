@@ -19,18 +19,35 @@
 }
 
 html,
-body,
-#root {
+body {
   height: 100%;
-  overflow: auto;
   overflow-x: hidden;
   position: relative;
 }
 
 #root {
   text-align: center;
-  display: flex;
-  flex-flow: column wrap;
+  padding: 2rem;
+  margin: auto;
+
+  @media screen and (min-width: 641px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: 769px) {
+    width: 65%;
+    margin: 2rem auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px #ccc;
+  }
+
+  @media screen and (min-width: 993px) {
+    width: 45%;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 30%;
+  }
 }
 
 /* Default styling for anchor element */
