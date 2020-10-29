@@ -4,11 +4,24 @@
   border: 2px solid $primaryColor;
   border-radius: 5px;
   color: $primaryColor;
+  transition: all 0.2s linear;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 5px $primaryColor;
+  }
 }
+
 .btn-primary {
   background: $primaryColor;
   color: white;
 }
+
 .btn-default {
   border: 2px solid $primaryColor;
+
+  &:hover {
+    background: $primaryColor;
+    color: #fff;
+  }
 }

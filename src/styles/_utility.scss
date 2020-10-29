@@ -1,0 +1,22 @@
+// Add more width to any button with a spinner
+.btn-spinner {
+  width: 6rem;
+}
+
+.danger-text {
+  color: $dangerColor;
+}
+
+.success-text {
+  color: $successColor;
+}
+
+.grey-text {
+  color: #8a8a8a;
+}
+
+.edit-note {
+  padding: 1rem;
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+}

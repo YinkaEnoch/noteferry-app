@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Yinka Enoch Adedokun" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta
+      name="description"
+      content="minimalistic and simple online clipboard"
+    />
     <meta name="theme-color" content="" />
 
     <!-- Icons -->
@@ -15,7 +18,131 @@
     <title>Note Ferry</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- App Title -->
+      <h1 class="app-title">Note Ferry</h1>
+
+      <!-- App Subtitle -->
+      <p class="app-subtitle">your simple online clipboard</p>
+
+      <!-- App Action (Button) Container -->
+      <section class="action-body">
+        <button class="action-btn active-btn" id="create-note">
+          Create Note
+        </button>
+        <button class="action-btn" id="fetch-note">Fetch Note</button>
+      </section>
+
+      <!-- App Form Container-->
+      <section class="form-body">
+        <!-- Create Note Body -->
+        <aside class="active-form" id="create-note-body">
+          <form method="POST">
+            <!-- Note title label -->
+            <label for="note-title">Note Title</label>
+
+            <!--  Note title input -->
+            <input
+              class="form-entry"
+              id="note-title"
+              type="text"
+              placeholder="Netlify API key"
+            />
+
+            <!--  Note Body label -->
+            <label for="note-body">Note Body</label>
+
+            <!-- Note Body input -->
+            <textarea
+              class="form-entry"
+              id="note-body"
+              placeholder="a23gvW344QA4ei90lkwe233i"
+            ></textarea>
+
+            <!-- Submit Button -->
+            <button class="btn btn-primary" type="submit">Save Note</button>
+          </form>
+        </aside>
+
+        <!-- Fetch Note Body -->
+        <aside class="" id="fetch-note-body">
+          <form method="GET">
+            <!-- Note title label -->
+            <label for="fnote-title">Note Title</label>
+
+            <!--  Note title input -->
+            <input
+              class="form-entry"
+              id="fnote-title"
+              type="text"
+              placeholder="Netlify API key"
+            />
+
+            <!-- Submit Button -->
+            <button class="btn btn-primary" type="submit">Fetch Note</button>
+          </form>
+        </aside>
+
+        <!-- Display Note Body -->
+        <aside class="" id="display-note-body">
+          <div>
+            <!-- Note Title -->
+            <p class="label">Note Title</p>
+            <p class="note-title-panel"></p>
+            <!-- Note Body -->
+            <p class="label">Note Body</p>
+            <p class="note-body-panel"></p>
+
+            <!-- Action Container -->
+            <div class="display-action-body">
+              <button
+                type="button"
+                class="btn btn-primary show-btn"
+                id="copy-note"
+              >
+                Copy Note
+              </button>
+              <button
+                type="button"
+                class="btn btn-default show-btn"
+                id="delete-note"
+              >
+                Delete Note
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary show-btn"
+                id="edit-note"
+              >
+                Edit Note
+              </button>
+              <button
+                type="button"
+                class="btn btn-default"
+                id="discard-changes"
+              >
+                Discard Changes
+              </button>
+              <button type="button" class="btn btn-primary" id="update-note">
+                Update Note
+              </button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        this app is crafted by
+        <a
+          href="https://bit.ly/yinkaenoch"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          @yinkaenoch
+        </a>
+      </footer>
+    </div>
     <noscript>This app require JavaScript to run</noscript>
   </body>
 </html>

@@ -18,7 +18,10 @@ module.exports = merge(commonConfig, {
     open: true,
     port: 4907,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy:{
+      '/noteferry': 'http://localhost:3011'
+    }
   },
   module: {
     rules: [

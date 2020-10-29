@@ -1,74 +1,92 @@
-import c from "create_new_element";
-import styles from "./create-note.module.scss";
+import { spinner, messagePanel } from "./components";
 
-const createNote = c({
-  elementType: "form",
-  elementClass: styles.createNoteBody,
-  otherAttr: {
-    method: "POST"
-  }
-});
+const url = "/noteferry/note";
 
-// Note title label
-createNote.appendChild(
-  c({
-    elementType: "label",
-    elementText: "Note Title",
-    elementClass: styles.label,
-    otherAttr: {
-      for: "note-title"
-    }
+// Create Note Form Handler
+const createNote = (e) => {
+  // prevent default
+  e.preventDefault();
+
+  // Note Title
+  let noteTitle = document.querySelector("#note-title");
+  // Note Body
+  let noteBody = document.querySelector("#note-body");
+  // Submit Button
+  let submitBtn = document.querySelector("#create-note-body [type=submit]");
+
+  // Disable all inputs
+  noteTitle.setAttribute("disabled", "disabled");
+  noteBody.setAttribute("disabled", "disabled");
+  submitBtn.setAttribute("disabled", "disabled");
+
+  // Add a spinner to submit button
+  submitBtn.textContent = "";
+  submitBtn.classList.add("btn-spinner");
+  submitBtn.appendChild(spinner("white"));
+
+  // Form Data
+  const data = {
+    noteTitle: noteTitle.value.trim().toLowerCase(),
+    noteBody: noteBody.value.trim()
+  };
+
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
   })
-);
+    .then((res) => res.json())
+    .then((resp) => {
+      if (resp.statusCode == 0) {
+        document
+          .querySelector("#create-note-body form")
+          .insertBefore(
+            messagePanel({ colorType: "danger", content: resp.message }),
+            submitBtn
+          );
+      } else {
+        document
+          .querySelector("#create-note-body form")
+          .insertBefore(
+            messagePanel({ colorType: "success", content: resp.message }),
+            submitBtn
+          );
+        // Clean up entries
+        document.querySelector("#create-note-body form").reset();
+      }
 
-// Note title input
-createNote.appendChild(
-  c({
-    elementType: "input",
-    elementId: "note-title",
-    elementClass: styles.formEntry,
-    otherAttr: {
-      type: "text",
-      placeholder: "Netlify API key"
-    }
-  })
-);
+      // Clean Up
+      cleanUp(noteTitle, noteBody, submitBtn);
+    })
+    .catch((e) => {
+      document
+        .querySelector("#create-note-body form")
+        .insertBefore(
+          messagePanel({ colorType: "danger", content: e.message }),
+          submitBtn
+        );
 
-// Note Body label
-createNote.appendChild(
-  c({
-    elementType: "label",
-    elementClass: styles.label,
-    elementText: "Note Body",
-    otherAttr: {
-      for: "note-body"
-    }
-  })
-);
+      cleanUp(noteTitle, noteBody, submitBtn);
+    });
+};
 
-// Note Body input
-createNote.appendChild(
-  c({
-    elementType: "textarea",
-    elementId: "note-body",
-    elementClass: [styles.formEntry, styles.textarea],
-    otherAttr: {
-      type: "text",
-      placeholder: "a23gvW344QA4ei90lkwe233i"
-    }
-  })
-);
+const cleanUp = (noteTitle, noteBody, submitBtn) => {
+  // Clean up after 2 seconds
+  window.setTimeout(() => {
+    // Remove messagePanel
+    if (document.querySelector("#message-panel"))
+      document
+        .querySelector("#message-panel")
+        .parentElement.removeChild(document.querySelector("#message-panel"));
 
-// Create Note Button
-createNote.appendChild(
-  c({
-    elementType: "button",
-    elementText: "Save Note",
-    elementClass: styles.btn,
-    otherAttr: {
-      type: "submit"
-    }
-  })
-);
+    // Remove disabled properties from all inputs
+    noteTitle.removeAttribute("disabled");
+    noteBody.removeAttribute("disabled");
+    submitBtn.removeAttribute("disabled");
 
+    // Remove spinner from submit button
+    submitBtn.textContent = "Save Note";
+    submitBtn.classList.remove("btn-spinner");
+  }, 2000);
+};
 export default createNote;
