@@ -1,6 +1,5 @@
 import { spinner, messagePanel } from "./components";
-
-const url = "/noteferry/note";
+import { API_URL } from "./config.js";
 
 // Create Note Form Handler
 const createNote = (e) => {
@@ -30,7 +29,7 @@ const createNote = (e) => {
     noteBody: noteBody.value.trim()
   };
 
-  fetch(url, {
+  fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)

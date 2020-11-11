@@ -1,7 +1,6 @@
 import displayNote from "./display-note.js";
 import { spinner, messagePanel } from "./components";
-
-const url = "/noteferry/note/";
+import { API_URL } from "./config.js";
 
 // Create Note Form Handler
 const fetchNote = (e) => {
@@ -22,7 +21,7 @@ const fetchNote = (e) => {
   submitBtn.classList.add("btn-spinner");
   submitBtn.appendChild(spinner("white"));
 
-  fetch(url + noteTitle.value.trim().toLowerCase(), {
+  fetch(API_URL + noteTitle.value.trim().toLowerCase(), {
     headers: { "Content-Type": "application/json" }
   })
     .then((res) => res.json())

@@ -4,8 +4,6 @@ import "./styles/display_note.scss";
 import createNote from "./create-note";
 import fetchNote from "./fetch-note";
 
-//const url = "https://noteferry.herokuapp.com/noteferry/note";
-
 // Create Note Button Handler
 document.querySelector("#create-note").addEventListener("click", (e) => {
   document.querySelector(".active-form").classList.remove("active-form");
