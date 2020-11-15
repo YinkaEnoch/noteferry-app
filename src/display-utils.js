@@ -9,6 +9,10 @@ const freezeBtns = () => {
   document.querySelector("#copy-note").setAttribute("disabled", "disabled");
   document.querySelector("#delete-note").setAttribute("disabled", "disabled");
   document.querySelector("#edit-note").setAttribute("disabled", "disabled");
+  document
+    .querySelector("#discard-changes")
+    .setAttribute("disabled", "disabled");
+  document.querySelector("#update-note").setAttribute("disabled", "disabled");
   // Remove contenteditable from  note-body-panel
   document.querySelector(".note-body-panel").removeAttribute("contenteditable");
 };
@@ -20,6 +24,8 @@ const unFreezeBtns = () => {
   document.querySelector("#copy-note").removeAttribute("disabled");
   document.querySelector("#delete-note").removeAttribute("disabled");
   document.querySelector("#edit-note").removeAttribute("disabled");
+  document.querySelector("#discard-changes").removeAttribute("disabled");
+  document.querySelector("#update-note").removeAttribute("disabled");
 };
 
 /**

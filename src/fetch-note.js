@@ -26,7 +26,7 @@ const fetchNote = (e) => {
   })
     .then((res) => res.json())
     .then((resp) => {
-      if (resp.statusCode == 0) {
+      if (resp.statusType === "failed") {
         document
           .querySelector("#fetch-note-body form")
           .insertBefore(
@@ -37,8 +37,9 @@ const fetchNote = (e) => {
         cleanUp(noteTitle, submitBtn);
       } else {
         // Clean up search entry
-        noteTitle.value = "";
+        document.querySelector("#fetch-note-body form").reset();
         cleanUp(noteTitle, submitBtn, 200);
+
         // Display Note
         displayNote(resp);
       }

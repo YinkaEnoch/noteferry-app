@@ -9,6 +9,10 @@
   animation: spin 0.7s linear infinite;
 }
 
+.spinner-white {
+  border-color: #fff;
+}
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);

@@ -1,19 +1,16 @@
 import c from "create_new_element";
 
 // Spinner Element
-const spinner = (colorType) => {
-  let color = "#1267ef";
+const spinner = (colorType = "") => {
+  let color = "spinner";
   if (colorType.toLowerCase() === "white") {
-    color = "#fff";
+    color = ["spinner", "spinner-white"];
   }
 
   return c({
     elementType: "p",
     elementId: "spinner",
-    elementClass: "spinner",
-    otherAttr: {
-      style: `border-color: ${color}`
-    }
+    elementClass: color
   });
 };
 

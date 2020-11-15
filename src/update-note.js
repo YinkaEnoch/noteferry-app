@@ -2,7 +2,7 @@ import { freezeBtns, addMessagePanel, cleanUp } from "./display-utils.js";
 import { API_URL } from "./config.js";
 import { spinner } from "./components.js";
 
-const updateNote = (e) => {
+document.querySelector("#update-note").addEventListener("click", (e) => {
   freezeBtns();
   e.target.textContent = "";
   e.target.classList.add("btn-spinner");
@@ -13,7 +13,7 @@ const updateNote = (e) => {
   let noteBody = JSON.parse(sessionStorage.noteferry).noteBody;
 
   // Get the changes
-  let newNoteBody = document.querySelector(".note-body-panel").innerHTML;
+  let newNoteBody = document.querySelector(".note-body-panel").innerHTML.trim();
 
   // NO CHANGES
   if (noteBody === newNoteBody) {
@@ -67,6 +67,4 @@ const updateNote = (e) => {
         cleanUp(e, "Update Note");
       }, 2000);
     });
-};
-
-export default updateNote;
+});

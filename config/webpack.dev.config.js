@@ -1,5 +1,6 @@
 const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.common");
+const { DefinePlugin } = require("webpack");
 
 // CSSModuleLoader
 const CSSModuleLoader = {
@@ -19,8 +20,8 @@ module.exports = merge(commonConfig, {
     port: 4907,
     hot: true,
     historyApiFallback: true,
-    proxy:{
-      '/noteferry': 'http://localhost:3011'
+    proxy: {
+      "/noteferry": "http://localhost:3011"
     }
   },
   module: {
@@ -38,5 +39,13 @@ module.exports = merge(commonConfig, {
         use: ["style-loader", CSSModuleLoader, "sass-loader"]
       }
     ]
-  }
+  },
+
+  plugins: [
+    new DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("development")
+      }
+    })
+  ]
 });

@@ -25,3 +25,11 @@
     color: #fff;
   }
 }
+
+#delete-note.btn-spinner {
+  &:hover {
+    .spinner {
+      border-color: #fff;
+    }
+  }
+}

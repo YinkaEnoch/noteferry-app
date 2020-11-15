@@ -5,11 +5,11 @@ import { freezeBtns, addMessagePanel, cleanUp } from "./display-utils.js";
 /**
  * Delete a note from the DB
  * */
-const deleteNote = (e) => {
+document.querySelector("#delete-note").addEventListener("click", (e) => {
   freezeBtns();
   e.target.textContent = "";
   e.target.classList.add("btn-spinner");
-  e.target.appendChild(spinner("white"));
+  e.target.appendChild(spinner());
 
   fetch(API_URL, {
     method: "DELETE",
@@ -20,16 +20,16 @@ const deleteNote = (e) => {
   })
     .then((res) => res.json())
     .then((resp) => {
-      if (resp.statusCode == 0) {
+      if (resp.statusType === "failed") {
         addMessagePanel({ colorType: "danger", content: resp.message });
 
-        window.setTimeout(() => {
+        setTimeout(() => {
           cleanUp(e, "Delete Note");
         }, 2000);
       } else {
         addMessagePanel({ colorType: "success", content: resp.message });
 
-        window.setTimeout(() => {
+        setTimeout(() => {
           // Redirect to create note
           document
             .querySelector(".active-form")
@@ -38,9 +38,12 @@ const deleteNote = (e) => {
             .querySelector("#create-note-body")
             .classList.add("active-form");
           document.querySelector("#create-note").classList.add("active-btn");
-        }, 1000);
-        // Clean up
-        cleanUp(e, "Delete Note");
+        }, 2500);
+
+        setTimeout(() => {
+          // Clean up
+          cleanUp(e, "Delete Note");
+        }, 2000);
       }
     })
     .catch((err) => {
@@ -50,6 +53,4 @@ const deleteNote = (e) => {
         cleanUp(e, "Delete Note");
       }, 2000);
     });
-};
-
-export default deleteNote;
+});

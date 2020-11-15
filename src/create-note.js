@@ -23,20 +23,18 @@ const createNote = (e) => {
   submitBtn.classList.add("btn-spinner");
   submitBtn.appendChild(spinner("white"));
 
-  // Form Data
-  const data = {
-    noteTitle: noteTitle.value.trim().toLowerCase(),
-    noteBody: noteBody.value.trim()
-  };
-
+  // Submit form data
   fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify({
+      noteTitle: noteTitle.value.trim().toLowerCase(),
+      noteBody: noteBody.value.trim()
+    })
   })
     .then((res) => res.json())
     .then((resp) => {
-      if (resp.statusCode == 0) {
+      if (resp.statusType === "failed") {
         document
           .querySelector("#create-note-body form")
           .insertBefore(

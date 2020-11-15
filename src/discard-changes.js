@@ -1,4 +1,4 @@
-const discardChanges = () => {
+document.querySelector("#discard-changes").addEventListener("click", () => {
   // Display delete and edit note buttons
   document.querySelector("#delete-note").classList.add("show-btn");
   document.querySelector("#edit-note").classList.add("show-btn");
@@ -18,6 +18,4 @@ const discardChanges = () => {
   document.querySelector(".note-body-panel").innerHTML = JSON.parse(
     sessionStorage.noteferry
   ).noteBody;
-};
-
-export default discardChanges;
+});

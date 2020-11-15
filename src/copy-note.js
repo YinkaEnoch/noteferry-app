@@ -1,8 +1,8 @@
-const copyNote = (e) => {
+document.querySelector("#copy-note").addEventListener("click", (e) => {
   // Create a textarea element
   const copyText = document.createElement("textarea");
   copyText.id = "copy-note-textarea";
-  copyText.value = document.querySelector(".note-body-panel").innerHTML;
+  copyText.value = document.querySelector(".note-body-panel").innerHTML.trim();
   copyText.style.position = "fixed";
   copyText.style.top = "-100000px";
   copyText.style.left = "-100000px";
@@ -26,6 +26,4 @@ const copyNote = (e) => {
     document.body.removeChild(copyText);
     e.target.textContent = "Copy Note";
   }, 2000);
-};
-
-export default copyNote;
+});
