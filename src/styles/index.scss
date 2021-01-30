@@ -67,7 +67,6 @@ button {
 .app-title {
   color: $primaryColor;
   font-size: 2rem;
-  margin: 1rem auto 0;
 }
 
 .app-subtitle {
@@ -80,7 +79,6 @@ button {
 .form-body {
   text-align: left;
   padding: 1rem;
-  padding-top: 1.5rem;
 }
 
 .action-btn {
@@ -109,6 +107,7 @@ button {
 #message-panel {
   text-align: center;
   margin: 1rem auto;
+  background: #eee;
 }
 @import "utility";
 @import "spinner";

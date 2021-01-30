@@ -1,5 +1,6 @@
 document.querySelector("#edit-note").addEventListener("click", () => {
-  // Hide delete and edit note buttons
+  // Hide copy, delete and edit note buttons
+  document.querySelector("#copy-note").classList.remove("show-btn");
   document.querySelector("#delete-note").classList.remove("show-btn");
   document.querySelector("#edit-note").classList.remove("show-btn");
 
@@ -11,8 +12,8 @@ document.querySelector("#edit-note").addEventListener("click", () => {
   document.querySelector(".note-title-panel").classList.add("grey-text");
 
   // Make note body panel editable
-  document
-    .querySelector(".note-body-panel")
-    .setAttribute("contenteditable", true);
-  document.querySelector(".note-body-panel").classList.add("edit-note");
+  let noteBodyPanel = document.querySelector(".note-body-panel");
+
+  noteBodyPanel.setAttribute("contenteditable", true);
+  noteBodyPanel.classList.add("edit-note");
 });

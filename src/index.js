@@ -4,29 +4,30 @@ import "./styles/display_note.scss";
 import createNote from "./create-note";
 import fetchNote from "./fetch-note";
 
-// Create Note Button Handler
-document.querySelector("#create-note").addEventListener("click", (e) => {
+const displayCreateNote = () => {
   document.querySelector(".active-form").classList.remove("active-form");
   document.querySelector("#create-note-body").classList.add("active-form");
 
-  // Add active-btn class
-  if (document.querySelector(".active-btn")) {
-    document.querySelector(".active-btn").classList.remove("active-btn");
-  }
-  e.target.classList.add("active-btn");
-});
+  document.querySelector(".active-btn").classList.remove("active-btn");
+  document.querySelector("#create-note").classList.add("active-btn");
+};
 
-// Fetch Note Button Handler
-document.querySelector("#fetch-note").addEventListener("click", (e) => {
+// Create Note Button Handler
+document
+  .querySelector("#create-note")
+  .addEventListener("click", displayCreateNote);
+
+const displayFetchNote = () => {
   document.querySelector(".active-form").classList.remove("active-form");
   document.querySelector("#fetch-note-body").classList.add("active-form");
 
-  // Add active-btn class
-  if (document.querySelector(".active-btn")) {
-    document.querySelector(".active-btn").classList.remove("active-btn");
-  }
-  e.target.classList.add("active-btn");
-});
+  document.querySelector(".active-btn").classList.remove("active-btn");
+  document.querySelector("#fetch-note").classList.add("active-btn");
+};
+// Fetch Note Button Handler
+document
+  .querySelector("#fetch-note")
+  .addEventListener("click", displayFetchNote);
 
 // Create Form Handler
 document
@@ -37,3 +38,14 @@ document
 document
   .querySelector("#fetch-note-body form")
   .addEventListener("submit", (e) => fetchNote(e));
+
+// Hash listener
+window.addEventListener("hashchange", (e) => {
+  switch (window.location.hash) {
+    case "#fetch-note":
+      displayFetchNote();
+      break;
+    default:
+      displayCreateNote();
+  }
+});

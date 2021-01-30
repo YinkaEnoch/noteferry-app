@@ -92,38 +92,50 @@
             <!-- Note Body -->
             <p class="label">Note Body</p>
             <p class="note-body-panel"></p>
+            <!-- Note info -->
+            <p class="note-info-panel">
+              <span class="label">Created On: </span>
+              <span id="created-on"></span>
+              <br />
+              <span class="label">Last Modified: </span>
+              <span id="last-modified"></span>
+            </p>
 
             <!-- Action Container -->
             <div class="display-action-body">
               <button
                 type="button"
-                class="btn btn-primary show-btn"
+                class="btn-lean text-primary show-btn"
                 id="copy-note"
               >
                 Copy Note
               </button>
               <button
                 type="button"
-                class="btn btn-default show-btn"
+                class="btn-lean text-danger show-btn"
                 id="delete-note"
               >
                 Delete Note
               </button>
               <button
                 type="button"
-                class="btn btn-primary show-btn"
+                class="btn-lean text-primary show-btn"
                 id="edit-note"
               >
                 Edit Note
               </button>
               <button
                 type="button"
-                class="btn btn-default"
+                class="btn-lean text-dark"
                 id="discard-changes"
               >
                 Discard Changes
               </button>
-              <button type="button" class="btn btn-primary" id="update-note">
+              <button
+                type="button"
+                class="btn-lean text-primary"
+                id="update-note"
+              >
                 Update Note
               </button>
             </div>
@@ -134,11 +146,11 @@
       <!-- Footer -->
       <footer class="footer">
         <p>
-          <span style="color: red">N.B: </span>Every notes are automatically
+          <span style="color: red;">N.B: </span>Every notes are automatically
           deleted 24hrs after last modified.
         </p>
 
-        <p style="margin-top: 1rem; color: #444">
+        <p style="margin-top: 1rem; color: #444;">
           this app is crafted by
           <a
             href="https://bit.ly/yinkaenoch"

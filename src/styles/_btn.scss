@@ -17,19 +17,32 @@
   color: white;
 }
 
-.btn-default {
-  border: 2px solid $primaryColor;
+.btn-lean {
+  border: none;
+  border-bottom: 2px solid $primaryColor;
+  background: transparent;
+  transition: all 0.2s linear;
 
   &:hover {
-    background: $primaryColor;
-    color: #fff;
+    color: #121212;
+    border-bottom-color: #121212;
   }
 }
 
-#delete-note.btn-spinner {
+// Delete button
+.btn-lean.text-danger {
+  border-bottom-color: $dangerColor;
+
   &:hover {
-    .spinner {
-      border-color: #fff;
-    }
+    border-bottom-color: #121212;
+  }
+}
+
+// Discard button
+.btn-lean.text-dark {
+  border-bottom-color: #444;
+
+  &:hover {
+    border-bottom-color: #121212;
   }
 }

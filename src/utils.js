@@ -14,4 +14,12 @@ const removeSpinner = () => {
     .parentElement.removeChild(document.querySelector("#spinner"));
 };
 
-export { removeSpinner };
+/**
+ * Parse a date string to locale date and time
+ * */
+const parseDate = (str) => {
+  let d = new Date(str);
+  return `${d.toDateString()}, ${d.toLocaleTimeString()} `;
+};
+
+export { removeSpinner, parseDate };

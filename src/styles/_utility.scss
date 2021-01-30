@@ -3,20 +3,29 @@
   width: 6rem;
 }
 
-.danger-text {
+.text-primary {
+  color: $primaryColor;
+}
+
+.text-danger {
   color: $dangerColor;
 }
 
-.success-text {
+.text-success {
   color: $successColor;
 }
 
-.grey-text {
+.text-grey {
   color: #8a8a8a;
 }
 
+.text-dark {
+  color: #444;
+}
+
 .edit-note {
-  padding: 0.75rem 0.35rem;
+  padding: 0.75rem 0rem;
   border: 1px solid $primaryColor;
-  border-radius: 5px;
+  border-right: none;
+  border-left: none;
 }

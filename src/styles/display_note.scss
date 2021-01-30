@@ -30,6 +30,9 @@
 }
 
 .note-body-panel {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @keyframes fade {

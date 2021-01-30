@@ -57,7 +57,6 @@ const cleanUp = (e, content) => {
   unFreezeBtns();
   removeMessagePanel();
   e.target.textContent = content;
-  e.target.classList.remove("btn-spinner");
 };
 
 export {
@@ -65,5 +64,5 @@ export {
   unFreezeBtns,
   addMessagePanel,
   removeMessagePanel,
-  cleanUp
+  cleanUp,
 };
