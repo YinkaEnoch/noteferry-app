@@ -12,8 +12,8 @@ document.querySelector("#delete-note").addEventListener("click", (e) => {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      noteTitle: JSON.parse(sessionStorage.noteferry).noteTitle,
-    }),
+      noteTitle: JSON.parse(sessionStorage.noteferry).noteTitle
+    })
   })
     .then((res) => res.json())
     .then((resp) => {

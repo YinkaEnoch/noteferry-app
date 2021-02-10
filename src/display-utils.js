@@ -64,5 +64,5 @@ export {
   unFreezeBtns,
   addMessagePanel,
   removeMessagePanel,
-  cleanUp,
+  cleanUp
 };

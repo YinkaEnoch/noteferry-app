@@ -20,7 +20,7 @@ document.querySelector("#update-note").addEventListener("click", (e) => {
   if (noteBody === newNoteBody) {
     addMessagePanel({
       colorType: "danger",
-      content: "Failed to save note. There are no changes",
+      content: "Failed to save note. There are no changes"
     });
 
     setTimeout(() => {
@@ -41,8 +41,8 @@ document.querySelector("#update-note").addEventListener("click", (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       noteBody: newNoteBody.trim(),
-      noteTitle,
-    }),
+      noteTitle
+    })
   })
     .then((resp) => resp.json())
     .then((resp) => {

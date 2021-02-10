@@ -40,7 +40,7 @@ document
   .addEventListener("submit", (e) => fetchNote(e));
 
 // Hash listener
-window.addEventListener("hashchange", (e) => {
+window.addEventListener("hashchange", () => {
   switch (window.location.hash) {
     case "#fetch-note":
       displayFetchNote();

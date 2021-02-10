@@ -16,4 +16,10 @@ document.querySelector("#edit-note").addEventListener("click", () => {
 
   noteBodyPanel.setAttribute("contenteditable", true);
   noteBodyPanel.classList.add("edit-note");
+
+  // Focus note-body-panel
+  //noteBodyPanel.focus();
+  //let val = noteBodyPanel.textContent.trim();
+  //noteBodyPanel.textContent = "";
+  //noteBodyPanel.textContent = val;
 });
