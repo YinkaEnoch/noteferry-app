@@ -1,0 +1,18 @@
+@import "./_variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  background-color: $primary;
+  color: #eee;
+  padding: 0 0.5rem;
+  user-select: none;
+
+  p {
+    cursor: pointer;
+  }
+
+  h4 {
+    margin-left: 4rem;
+  }
+}

@@ -1,0 +1,26 @@
+.inputElement {
+  display: block;
+  width: 100%;
+  margin: 0.75rem auto;
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 0.5rem;
+}
+
+.btnElement {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #333;
+  background: none;
+  transition: all 0.2s linear;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #eee;
+    background: #333;
+  }
+}

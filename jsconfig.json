@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": ".",
+    "paths": {
+      "Styles/*": ["src/styles/*"],
+      "Components/*": ["src/components/*"],
+      "Pages/*": ["src/pages/*"],
+      "Images/*": ["src/images/*"],
+      "State/*": ["src/state/*"],
+      "API/*": ["src/api/*"],
+      "Utils/*": ["src/utils/*"]
+    }
+  }
+}

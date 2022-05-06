@@ -1,0 +1,30 @@
+.mainContainer {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+
+  p {
+    &:last-child {
+      margin-top: 2rem;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin: 0.5rem 0;
+    color: grey;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 0.5rem;
+
+    &:hover {
+      background: grey;
+      color: #000;
+    }
+  }
+}

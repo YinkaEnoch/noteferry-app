@@ -1,0 +1,24 @@
+{
+  "name": "xferry",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 30301",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "Yinka Enoch Adedokun <adedokunyinkaenoch@gmail.com> (https://yinkaenoch.github.io)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jotai": "^1.6.5",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.6",
+    "sass": "^1.51.0"
+  }
+}
