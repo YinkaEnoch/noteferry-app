@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { ValidateNoteTitle } from "Utils/index";
 import styles from "Styles/Note.module.scss";
-import { useRouter } from "next/router";
 
 const FetchNote = () => {
   const [noteTitle, setNoteTitle] = useState("");
