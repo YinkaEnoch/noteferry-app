@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { ValidateNoteTitle } from "Utils/index";
+import { ValidateTitle } from "Utils/index";
 import styles from "Styles/Note.module.scss";
 import Layout from "Components/Layout";
 
-const FetchNote = () => {
-  const [noteTitle, setNoteTitle] = useState("");
+const FetchDoc = () => {
+  const [docTitle, setDocTitle] = useState("");
   const [errorMsg, setErrMsg] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validTitle = ValidateNoteTitle(noteTitle);
+    const validTitle = ValidateTitle(docTitle);
 
     // Invalid keyword
     if (validTitle.code == 1) {
@@ -19,42 +19,42 @@ const FetchNote = () => {
       return false;
     }
 
-    // Go to note page
-    router.push(`/note/${noteTitle}`);
+    // Go to doc page
+    router.push(`/doc/${docTitle}`);
   };
 
   return (
     <Layout>
       <main className={styles.main}>
         <section className={styles.section}>
-          <h2>Fetch Note</h2>
+          <h2>Retrieve Doc</h2>
 
           <form action="" method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="noteTitle">Note Title</label>
+            <label htmlFor="docTitle">Doc Title</label>
             <input
-              id="noteTitle"
+              id="docTitle"
               type="text"
-              name="noteTitle"
+              name="docTitle"
               required
-              placeholder="Netlify API Key"
+              placeholder="Laughing meme"
               onInput={(e) => {
-                setNoteTitle(e.target.value);
+                setDocTitle(e.target.value);
                 setErrMsg("");
               }}
             />
 
             <p className="error-msg">{errorMsg}</p>
-            <button type="submit">Fetch Note</button>
+            <button type="submit">Fetch Doc</button>
           </form>
         </section>
 
         <footer className={`${styles.footer} ${styles.mt_4}`}>
-          <span className="red">N.B:</span>&nbsp; Every notes are automatically
-          deleted after 12hours after last update.
+          <span className="red">N.B:</span>&nbsp; All documents are
+          automatically deleted after 30minutes after upload.
         </footer>
       </main>
     </Layout>
   );
 };
 
-export default FetchNote;
+export default FetchDoc;

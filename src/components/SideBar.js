@@ -25,7 +25,7 @@ const SideBar = ({ sideBar, toggleSideBar }) => {
             <Link href="/doc/stash">Stash Doc</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/doc/retrieve">Retrieve Doc</Link>
+            <Link href="/doc/fetch">Retrieve Doc</Link>
           </li>
         </ul>
 
@@ -36,12 +36,10 @@ const SideBar = ({ sideBar, toggleSideBar }) => {
         </ul>
       </nav>
 
-      <Link
-        href="https://yinkaenoch.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <a className={styles.author}>@yinkaenoch</a>
+      <Link href="https://yinkaenoch.github.io">
+        <a target="_blank" className={styles.author} rel="noopener noreferrer">
+          @yinkaenoch
+        </a>
       </Link>
     </section>
   );

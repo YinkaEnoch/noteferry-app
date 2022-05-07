@@ -1,4 +1,12 @@
 .main {
   padding: 2rem;
   line-height: 1.5;
+
+  @media screen and (min-width: 768px) {
+    & {
+      margin: auto;
+      width: 40%;
+      height: 100%;
+    }
+  }
 }
