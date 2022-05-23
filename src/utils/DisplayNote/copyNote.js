@@ -10,18 +10,15 @@ const copyNote = async (props) => {
     props.setDisable(true); // Disable all buttons
     props.setCopyBtn("Copying Note...");
     await clipboardHandler(props.noteBody); // Copy notes
-    props.setActionMsg("Copied successfully!!"); // Output success message
-    props.setMsgType("success");
+    props.setFeedback("Copied successfully!!"); // Output success message
+    props.setFeedbackType("success");
   } catch (e) {
-    props.setActionMsg(`Error: ${e}`);
-    props.setMsgType("danger");
+    props.setFeedback(`Error: ${e}`);
+    props.setFeedbackType("danger");
     console.error(e);
   } finally {
     props.setDisable(false); // Unfreeze all buttons
     props.setCopyBtn("Copy");
-    setTimeout(() => {
-      props.setActionMsg("");
-    }, 3000);
   }
 };
 

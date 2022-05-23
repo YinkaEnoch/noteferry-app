@@ -6,16 +6,27 @@ import copyNote from "Utils/DisplayNote/copyNote";
 import Layout from "Components/Layout";
 import styles from "Styles/DisplayNote.module.scss";
 import deleteNote from "Utils/DisplayNote/deleteNote";
+import EditModal from "Components/EditModal";
+import { useEffect } from "react";
 
 const Note = (props) => {
   const router = useRouter();
-  const [actionMsg, setActionMsg] = useState("");
-  const [msgType, setMsgType] = useState("success");
+  const [noteBody, setNoteBody] = useState(props.noteBody);
+  const [feedback, setFeedback] = useState("");
+  const [feedbackType, setFeedbackType] = useState("success");
   const [copyBtnText, setCopyBtn] = useState("Copy");
   const [deleteBtnText, setDeleteBtn] = useState("Delete");
   const [disabledElement, setDisable] = useState(false);
   const [showDeleteModal, setShowDelModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [lastModified, setLastModified] = useState(parseDate(props.updatedAt));
   const { title } = router.query;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFeedback("");
+    }, 2000);
+  }, [feedback]);
 
   return (
     <Layout>
@@ -41,16 +52,20 @@ const Note = (props) => {
               <h5>Note Title</h5>
               <p id="noteTitle">{props.noteTitle}</p>
               <h5>Note Body</h5>
-              <p id="noteBody">{props.noteBody}</p>
+              <p id="noteBody">{noteBody}</p>
               <h5>Created On</h5>
               <p id="createdAt">{parseDate(props.createdAt)}</p>
               <h5>Last Modified</h5>
-              <p id="updatedAt">{parseDate(props.updatedAt)}</p>
+              <p id="updatedAt">{lastModified}</p>
             </section>
 
-            <aside className={styles.actionPanel}>
-              <p className={`${msgType == "success" ? "success" : "danger"}`}>
-                <small>{actionMsg}</small>
+            <aside className={styles.feedback}>
+              <p
+                className={`${
+                  feedbackType == "success" ? "success" : "danger"
+                }`}
+              >
+                <small>{feedback}</small>
               </p>
               <button
                 type="button"
@@ -58,16 +73,20 @@ const Note = (props) => {
                 onClick={() =>
                   copyNote({
                     setCopyBtn: setCopyBtn,
-                    setActionMsg: setActionMsg,
-                    setMsgType: setMsgType,
-                    noteBody: props.noteBody,
+                    setFeedback: setFeedback,
+                    setFeedbackType: setFeedbackType,
+                    noteBody: noteBody,
                     setDisable: setDisable,
                   })
                 }
               >
                 {copyBtnText}
               </button>
-              <button type="button" disabled={disabledElement}>
+              <button
+                type="button"
+                disabled={disabledElement}
+                onClick={() => setShowEditModal(true)}
+              >
                 Edit
               </button>
               <button
@@ -78,8 +97,8 @@ const Note = (props) => {
                     setDeleteBtn: setDeleteBtn,
                     setDisable: setDisable,
                     setShowDelModal: setShowDelModal,
-                    setActionMsg: setActionMsg,
-                    setMsgType: setMsgType,
+                    setFeedback: setFeedback,
+                    setFeedbackType: setFeedbackType,
                     router: router,
                     noteTitle: props.noteTitle,
                   });
@@ -95,6 +114,21 @@ const Note = (props) => {
             </footer>
           </>
         )}
+
+        {
+          /* Edit Modal */
+          showEditModal && (
+            <EditModal
+              noteTitle={props.noteTitle}
+              noteBody={noteBody}
+              setShowEditModal={setShowEditModal}
+              setNoteBody={setNoteBody}
+              setFeedback={setFeedback}
+              setFeedbackType={setFeedbackType}
+              setLastModified={setLastModified}
+            />
+          )
+        }
 
         {
           /*Delete modal*/

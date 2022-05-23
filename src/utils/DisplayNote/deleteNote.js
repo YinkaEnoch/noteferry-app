@@ -1,5 +1,4 @@
 const deleteNote = async (props) => {
-  console.log(props.noteTitle);
   const url = process.env.NEXT_PUBLIC_NOTES_SERVER_URL + "/" + props.noteTitle;
   // freeze all buttons
   props.setDisable(true);
@@ -15,8 +14,8 @@ const deleteNote = async (props) => {
 
   // if deletion failed show error message
   if (resp.code == 1) {
-    props.setMsgType("danger");
-    props.setActionMsg(`Failed to delete note!! ${resp.message}`);
+    props.setFeedbackType("danger");
+    props.setFeedback(`Failed to delete note!! ${resp.message}`);
   } else {
     // if response is okay show modal deleted
     props.setShowDelModal(true);

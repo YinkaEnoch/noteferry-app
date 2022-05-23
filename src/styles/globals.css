@@ -18,6 +18,11 @@ a {
   transition: all 0.2s linear;
 }
 
+button {
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
 * {
   box-sizing: border-box;
 }
