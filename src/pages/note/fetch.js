@@ -30,7 +30,6 @@ const FetchNote = () => {
     const note = await (
       await fetch(`${process.env.NEXT_PUBLIC_NOTES_SERVER_URL}/${noteTitle}`)
     ).json();
-    console.log(note);
 
     // Revert submit btn text to "Save Note"
     setSubmitText("Fetch Note");

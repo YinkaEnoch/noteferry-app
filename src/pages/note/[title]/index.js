@@ -5,13 +5,16 @@ import parseDate from "Utils/parseDate";
 import copyNote from "Utils/DisplayNote/copyNote";
 import Layout from "Components/Layout";
 import styles from "Styles/DisplayNote.module.scss";
+import deleteNote from "Utils/DisplayNote/deleteNote";
 
 const Note = (props) => {
   const router = useRouter();
   const [actionMsg, setActionMsg] = useState("");
   const [msgType, setMsgType] = useState("success");
   const [copyBtnText, setCopyBtn] = useState("Copy");
+  const [deleteBtnText, setDeleteBtn] = useState("Delete");
   const [disabledElement, setDisable] = useState(false);
+  const [showDeleteModal, setShowDelModal] = useState(false);
   const { title } = router.query;
 
   return (
@@ -67,8 +70,22 @@ const Note = (props) => {
               <button type="button" disabled={disabledElement}>
                 Edit
               </button>
-              <button type="button" disabled={disabledElement}>
-                Delete
+              <button
+                type="button"
+                disabled={disabledElement}
+                onClick={() => {
+                  deleteNote({
+                    setDeleteBtn: setDeleteBtn,
+                    setDisable: setDisable,
+                    setShowDelModal: setShowDelModal,
+                    setActionMsg: setActionMsg,
+                    setMsgType: setMsgType,
+                    router: router,
+                    noteTitle: props.noteTitle,
+                  });
+                }}
+              >
+                {deleteBtnText}
               </button>
             </aside>
 
@@ -78,6 +95,17 @@ const Note = (props) => {
             </footer>
           </>
         )}
+
+        {
+          /*Delete modal*/
+
+          showDeleteModal && (
+            <aside className={styles.deleteModal}>
+              <h1>&#9989;</h1>
+              <p>Note deleted!!</p>
+            </aside>
+          )
+        }
       </main>
     </Layout>
   );

@@ -1,10 +1,17 @@
 const deleteNote = async (props) => {
+  console.log(props.noteTitle);
+  const url = process.env.NEXT_PUBLIC_NOTES_SERVER_URL + "/" + props.noteTitle;
   // freeze all buttons
   props.setDisable(true);
-  // Delete note
-  const resp = await (await fetch(url, { method: "DELETE" })).json();
   // change button to deleting
   props.setDeleteBtn("Deleting Note...");
+  // Delete note
+  const resp = await (await fetch(url, { method: "DELETE" })).json();
+
+  // Unfreeze buttons
+  props.setDisable(false);
+  props.setDeleteBtn("Delete");
+  props.setShowDelModal(false);
 
   // if deletion failed show error message
   if (resp.code == 1) {
@@ -12,13 +19,12 @@ const deleteNote = async (props) => {
     props.setActionMsg(`Failed to delete note!! ${resp.message}`);
   } else {
     // if response is okay show modal deleted
-    props.showDeleteModal(true);
+    props.setShowDelModal(true);
     // Re-route to create note
-    props.router.push("/note/create");
+    setTimeout(() => {
+      props.router.push("/note/create");
+    }, 2000);
   }
-  props.setDisable(false);
-  props.setDeleteBtn("Delete");
-  props.showDeleteModal(false);
 };
 
 export default deleteNote;
