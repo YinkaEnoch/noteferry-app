@@ -1,3 +1,8 @@
 import { atom } from "jotai";
 
-export const sideBarState = atom(false);
+export const NoteData = atom({
+  noteTitle: "",
+  noteBody: "",
+  createdAt: "",
+  updatedAt: "",
+});

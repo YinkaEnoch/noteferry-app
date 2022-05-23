@@ -1,0 +1,61 @@
+@import "./formElement";
+
+.main {
+  padding: 2rem;
+
+  @media screen and (min-width: 768px) {
+    & {
+      height: 100%;
+      width: 40%;
+      margin: auto;
+    }
+  }
+}
+
+.notFound {
+  line-height: 1.5;
+  a {
+    @extend .btnElement;
+    display: inline-block;
+    margin-top: 0;
+  }
+}
+
+.panel {
+  line-height: 1.5;
+
+  & * {
+    margin: 0;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    color: #333;
+  }
+
+  p {
+    margin: 0.15rem 0 1rem;
+  }
+}
+
+.actionPanel {
+  margin-top: 2rem;
+
+  button {
+    @extend .btnElement;
+    display: inline-block;
+    margin: 0 0.35rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}
+
+.footer {
+  margin-top: 4rem;
+  text-align: center;
+}

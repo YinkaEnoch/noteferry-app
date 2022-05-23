@@ -7,15 +7,40 @@ import Layout from "Components/Layout";
 const FetchNote = () => {
   const [noteTitle, setNoteTitle] = useState("");
   const [errorMsg, setErrMsg] = useState("");
+  const [disabledElement, setDisable] = useState(false);
+  const [submitText, setSubmitText] = useState("Fetch Note");
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validTitle = ValidateNoteTitle(noteTitle);
 
     // Invalid keyword
     if (validTitle.code == 1) {
       setErrMsg(validTitle.message);
+      return false;
+    }
+
+    // Disable all form elements
+    setDisable(!disabledElement);
+    // Change submit btn text
+    setSubmitText("Fetching Note...");
+
+    // Fetch note
+    const note = await (
+      await fetch(`${process.env.NEXT_PUBLIC_NOTES_SERVER_URL}/${noteTitle}`)
+    ).json();
+    console.log(note);
+
+    // Revert submit btn text to "Save Note"
+    setSubmitText("Fetch Note");
+
+    // Enable all form elements
+    setDisable(false);
+
+    // Failed operation
+    if (note.code == 1) {
+      setErrMsg(note.message);
       return false;
     }
 
@@ -41,10 +66,15 @@ const FetchNote = () => {
                 setNoteTitle(e.target.value);
                 setErrMsg("");
               }}
+              disabled={disabledElement}
             />
 
-            <p className="error-msg">{errorMsg}</p>
-            <button type="submit">Fetch Note</button>
+            <p className="feedback-panel danger">
+              <small>{errorMsg}</small>
+            </p>
+            <button type="submit" disabled={disabledElement}>
+              {submitText}
+            </button>
           </form>
         </section>
 

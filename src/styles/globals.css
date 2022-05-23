@@ -26,9 +26,14 @@ a {
   color: red !important;
 }
 
-.error-msg {
-  color: red !important;
-  font-size: 0.75rem;
+.danger {
+  color: #dc3545 !important;
+}
+.success {
+  color: #198754 !important;
+}
+
+.feedback-panel {
   text-align: center;
   transition: all 0.2s linear;
 }
