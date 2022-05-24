@@ -35,7 +35,8 @@ const Note = (props) => {
           <section className={styles.notFound}>
             <h4>404: Not Found!!</h4>
             <p>
-              The specified note '{title}' does not exist or has been deleted.
+              The specified note &apos;{title}&apos; does not exist or has been
+              deleted.
             </p>
             <Link href="/note/create">
               <a>Create a New Note</a>
