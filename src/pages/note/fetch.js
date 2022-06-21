@@ -79,7 +79,7 @@ const FetchNote = () => {
 
         <footer className={`${styles.footer} ${styles.mt_4}`}>
           <span className="red">N.B:</span>&nbsp; Every notes are automatically
-          deleted after 12hours after last update.
+          deleted 1hour after last update.
         </footer>
       </main>
     </Layout>

@@ -111,7 +111,7 @@ const Note = (props) => {
 
             <footer className={styles.footer}>
               <span className="red">N.B:</span>&nbsp; Every notes are
-              automatically deleted after 12hours after last update.
+              automatically deleted after 1hour after last update.
             </footer>
           </>
         )}

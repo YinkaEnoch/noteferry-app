@@ -1,0 +1,26 @@
+@import "./formElement";
+
+.main {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 0.5rem;
+
+  & * {
+    margin: 0;
+  }
+}
+
+.header {
+}
+
+.url {
+  margin: 0.5rem 0 0.75rem;
+  word-break: break-all;
+}
+
+.btn {
+  @extend .btnElement;
+  display: inline-block;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+}

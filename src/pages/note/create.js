@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ValidateNoteTitle } from "Utils/index";
 import styles from "Styles/Note.module.scss";
 import Layout from "Components/Layout";
-import { clipboardHandler } from "Utils/DisplayNote/copyNote";
+import FeedBackPanel from "Components/FeedBackPanel";
+import URLPanel from "Components/URLPanel";
 
 const CreateNote = () => {
   const [noteTitle, setNoteTitle] = useState("");
@@ -60,7 +61,7 @@ const CreateNote = () => {
       setNoteBody("");
       setNoteUrl(
         process.env.NEXT_PUBLIC_NOTES_APP_URL +
-          noteTitle.toLowerCase().replace(/\s/g, "-").trim()
+          noteTitle.toLowerCase().trim().replace(/\s/g, "-")
       );
     }
 
@@ -106,13 +107,7 @@ const CreateNote = () => {
               value={noteBody}
             ></textarea>
 
-            <p
-              className={`feedback-panel ${
-                feedbackType === "danger" ? "danger" : "success"
-              }`}
-            >
-              <small>{feedback}</small>
-            </p>
+            <FeedBackPanel feedback={feedback} feedbackType={feedbackType} />
             <button type="submit" disabled={disabledElement}>
               {submitText}
             </button>
@@ -120,31 +115,12 @@ const CreateNote = () => {
         </section>
 
         {noteUrl && (
-          <section className={styles.noteUrl}>
-            <h5>
-              <small>Note Link</small>
-            </h5>
-            <p>
-              <small>{noteUrl}</small>
-            </p>
-            <button
-              type="button"
-              onClick={async () => {
-                await clipboardHandler(noteUrl);
-
-                setTimeout(() => {
-                  setNoteUrl("");
-                }, 3000);
-              }}
-            >
-              Copy Link
-            </button>
-          </section>
+          <URLPanel title="Note Link" url={noteUrl} urlSetter={setNoteUrl} />
         )}
 
         <footer className={styles.footer}>
           <span className="red">N.B:</span>&nbsp; Every notes are automatically
-          deleted after 12hours after last update.
+          deleted 1hour after last update.
         </footer>
       </main>
     </Layout>

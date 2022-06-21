@@ -13,7 +13,7 @@ const ValidateNoteTitle = (title) => {
 };
 
 const ValidateDocTitle = (title) => {
-  const testCase = /^stash$|^retrieve$/.test(title.toLowerCase());
+  const testCase = /^stash$|^fetch$/.test(title.toLowerCase());
 
   if (testCase) {
     return {

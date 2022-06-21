@@ -50,7 +50,7 @@ const FetchDoc = () => {
 
         <footer className={`${styles.footer} ${styles.mt_4}`}>
           <span className="red">N.B:</span>&nbsp; All documents are
-          automatically deleted after 30minutes after upload.
+          automatically deleted 15minutes after upload.
         </footer>
       </main>
     </Layout>
