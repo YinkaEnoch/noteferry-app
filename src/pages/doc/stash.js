@@ -4,6 +4,7 @@ import styles from "Styles/Note.module.scss";
 import Layout from "Components/Layout";
 import FeedBackPanel from "Components/FeedBackPanel";
 import URLPanel from "Components/URLPanel";
+import Footer from "Components/Footer";
 
 const StashDoc = () => {
   const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -127,10 +128,8 @@ const StashDoc = () => {
           <URLPanel title="Doc Link" url={docUrl} urlSetter={setDocUrl} />
         )}
 
-        <footer className={styles.footer}>
-          <span className="red">N.B:</span>&nbsp; All documents are
-          automatically deleted 30minutes after upload.
-          {/*
+        <Footer text="All documents are automatically deleted 30minutes after upload." />
+        {/*
         <p>Supported file types:</p>
         <ul>
           <li>
@@ -144,7 +143,6 @@ const StashDoc = () => {
           </li>
         </ul>
         */}
-        </footer>
       </main>
     </Layout>
   );

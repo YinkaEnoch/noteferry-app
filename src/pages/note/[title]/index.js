@@ -1,13 +1,15 @@
-import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import parseDate from "Utils/parseDate";
-import copyNote from "Utils/DisplayNote/copyNote";
+import DeleteItem from "Utils/DeleteItem.util";
+import copyNote from "Utils/Notes/CopyNote.util";
 import Layout from "Components/Layout";
 import styles from "Styles/DisplayNote.module.scss";
-import deleteNote from "Utils/DisplayNote/deleteNote";
 import EditModal from "Components/EditModal";
-import { useEffect } from "react";
+import NotFound from "Components/NotFound";
+import DeleteModal from "Components/DeletedModal";
+import FeedBackPanel from "Components/FeedBackPanel";
+import Footer from "Components/Footer";
 
 const Note = (props) => {
   const router = useRouter();
@@ -31,18 +33,7 @@ const Note = (props) => {
   return (
     <Layout>
       <main className={styles.main}>
-        {!props.noteTitle && (
-          <section className={styles.notFound}>
-            <h4>404: Not Found!!</h4>
-            <p>
-              The specified note &apos;{title}&apos; does not exist or has been
-              deleted.
-            </p>
-            <Link href="/note/create">
-              <a>Create a New Note</a>
-            </Link>
-          </section>
-        )}
+        {!props.noteTitle && <NotFound type="note" title={title} />}
         {props.noteTitle && (
           <>
             <section className={styles.panel}>
@@ -61,13 +52,11 @@ const Note = (props) => {
             </section>
 
             <aside className={styles.feedback}>
-              <p
-                className={`${
-                  feedbackType == "success" ? "success" : "danger"
-                }`}
-              >
-                <small>{feedback}</small>
-              </p>
+              <FeedBackPanel
+                feedback={feedback}
+                feedbackType={feedbackType}
+                textAlign="left"
+              />
               <button
                 type="button"
                 disabled={disabledElement}
@@ -94,14 +83,15 @@ const Note = (props) => {
                 type="button"
                 disabled={disabledElement}
                 onClick={() => {
-                  deleteNote({
+                  DeleteItem({
                     setDeleteBtn: setDeleteBtn,
                     setDisable: setDisable,
                     setShowDelModal: setShowDelModal,
                     setFeedback: setFeedback,
                     setFeedbackType: setFeedbackType,
                     router: router,
-                    noteTitle: props.noteTitle,
+                    title: props.noteTitle,
+                    itemType: "note",
                   });
                 }}
               >
@@ -109,10 +99,7 @@ const Note = (props) => {
               </button>
             </aside>
 
-            <footer className={styles.footer}>
-              <span className="red">N.B:</span>&nbsp; Every notes are
-              automatically deleted after 1hour after last update.
-            </footer>
+            <Footer text="Every notes are automatically deleted after 1hour after last update." />
           </>
         )}
 
@@ -133,13 +120,7 @@ const Note = (props) => {
 
         {
           /*Delete modal*/
-
-          showDeleteModal && (
-            <aside className={styles.deleteModal}>
-              <h1>&#9989;</h1>
-              <p>Note deleted!!</p>
-            </aside>
-          )
+          showDeleteModal && <DeleteModal text="Note deleted!!" />
         }
       </main>
     </Layout>

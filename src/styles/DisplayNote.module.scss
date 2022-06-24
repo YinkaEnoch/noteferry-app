@@ -12,15 +12,6 @@
   }
 }
 
-.notFound {
-  line-height: 1.5;
-  a {
-    @extend .btnElement;
-    display: inline-block;
-    margin-top: 0;
-  }
-}
-
 .panel {
   line-height: 1.5;
 
@@ -44,6 +35,11 @@
 .feedback {
   margin-top: 2rem;
 
+  .button {
+    @extend button;
+    padding: 0.25rem 1rem;
+  }
+
   button {
     @extend .btnElement;
     display: inline-block;
@@ -53,37 +49,4 @@
       margin-left: 0;
     }
   }
-}
-
-.deleteModal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-  & * {
-    margin: 0 auto;
-    padding: 1rem;
-    background: #eee;
-    width: 80%;
-    text-align: center;
-
-    @media screen and (min-width: 768px) {
-      width: 30%;
-    }
-  }
-}
-
-.footer {
-  margin-top: 4rem;
-  text-align: center;
 }

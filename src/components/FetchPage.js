@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "Styles/Note.module.scss";
 import Layout from "Components/Layout";
+import Footer from "./Footer";
 
 const FetchPage = (props) => {
   const [title, setTitle] = useState("");
@@ -74,9 +75,7 @@ const FetchPage = (props) => {
           </form>
         </section>
 
-        <footer className={`${styles.footer} ${styles.mt_4}`}>
-          <span className="red">N.B:</span>&nbsp; {props.footerText}
-        </footer>
+        <Footer text={props.footerText} />
       </main>
     </Layout>
   );

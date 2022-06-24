@@ -18,9 +18,11 @@
   transition: all 0.2s linear;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #eee;
     background: #333;
+  }
+  &:focus {
+    box-shadow: 0 0 2px #333;
   }
 }

@@ -1,0 +1,10 @@
+@import "./formElement";
+
+.notFound {
+  line-height: 1.5;
+  a {
+    @extend .btnElement;
+    display: inline-block;
+    margin-top: 0;
+  }
+}

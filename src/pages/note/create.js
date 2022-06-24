@@ -4,6 +4,7 @@ import styles from "Styles/Note.module.scss";
 import Layout from "Components/Layout";
 import FeedBackPanel from "Components/FeedBackPanel";
 import URLPanel from "Components/URLPanel";
+import Footer from "Components/Footer";
 
 const CreateNote = () => {
   const [noteTitle, setNoteTitle] = useState("");
@@ -118,10 +119,7 @@ const CreateNote = () => {
           <URLPanel title="Note Link" url={noteUrl} urlSetter={setNoteUrl} />
         )}
 
-        <footer className={styles.footer}>
-          <span className="red">N.B:</span>&nbsp; Every notes are automatically
-          deleted 1hour after last update.
-        </footer>
+        <Footer text="Every notes are automatically deleted 1hour after last update." />
       </main>
     </Layout>
   );

@@ -2,7 +2,7 @@
  * Display the url of the note or doc created.
  * The displayed linked can then be copied to access the doc
  * */
-import { clipboardHandler } from "Utils/DisplayNote/copyNote";
+import { clipboardHandler } from "Utils/Notes/CopyNote.util";
 import styles from "Styles/URLPanel.module.scss";
 
 const URLPanel = ({ title, url, urlSetter }) => {

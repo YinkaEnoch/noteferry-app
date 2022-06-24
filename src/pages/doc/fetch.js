@@ -14,7 +14,7 @@ const FetchDoc = () => {
       Validator={ValidateDocTitle}
       fetchApiUrl={fetchApiUrl}
       pageUrl="doc"
-      footerText="All documents are automatically deleted 15minutes after upload."
+      footerText="All documents are automatically deleted 30minutes after upload."
     />
   );
 };
