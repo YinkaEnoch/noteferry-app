@@ -39,7 +39,7 @@ const StashDoc = () => {
     if (doc.size > MAX_FILE_SIZE) {
       setFeedback(
         `File size is larger than maximum size allowed!! 
-        File size: ${doc.size / 1024}mb`
+        File size: ${doc.size / 1024 / 1024}mb`
       );
       setFeedbackType("danger");
       return false;
